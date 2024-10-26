@@ -20,5 +20,14 @@ filipis.favorited = false;
 filipis.cuisines.push('American');
 
 function retrieveProperty(obj, key) {
-   
-}
+   if (key in obj){
+      return obj[key];
+   }
+   return "No such key exist";
+};
+
+console.log(retrieveProperty(filipis, 'cuisines'));
+console.log(retrieveProperty(filipis, 'favorited'));
+console.log(retrieveProperty(filipis, 'name'));
+console.log(retrieveProperty(filipis, 'nickname'));
+console.log(retrieveProperty(filipis, 'state'));
