@@ -26,3 +26,17 @@ const dominos = {
   zipcode: 54321,
   acceptsReservations: true,
 };
+function printPizzaPlace() {
+  for (const key in dominos) {
+    console.log(key, dominos)
+  }
+}
+/* printPizzaPlace(); */
+
+function toppingsPriceRange() {
+  for (const key in dominos.pizzaToppings){
+    console.log(dominos.pizzaToppings);
+  }
+}
+
+toppingsPriceRange();
