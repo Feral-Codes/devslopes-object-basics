@@ -26,17 +26,36 @@ const dominos = {
   zipcode: 54321,
   acceptsReservations: true,
 };
+
+
 function printPizzaPlace() {
   for (const key in dominos) {
-    console.log(key, dominos)
+    // console.log(key, dominos)
   }
 }
+
 /* printPizzaPlace(); */
-
-function toppingsPriceRange() {
-  for (const key in dominos.pizzaToppings){
-    console.log(dominos.pizzaToppings);
+const toppingsPriceRange = (pizzaPlace) => {
+  const prices = Object.values(pizzaPlace.pizzaToppings);
+  if (prices.length === 0) {
+    return [0, 0]; 
   }
+  let minPrice = Math.min(...prices);
+  let maxPrice = Math.max(...prices);
+  return [minPrice, maxPrice];
+};
+
+// console.log(toppingsPriceRange(dominos));
+
+
+function calculateAverageRating(pizzaPlace) {
+  const reviews = Object.values(pizzaPlace.starReviews);
+  if (reviews.length === 0) {
+    return `No reviews for ${pizzaPlace}`;
+  }; 
+  const totalStars = reviews.reduce((total, rating) => total + rating, 0);
+  const averageStars = totalStars / reviews.length;
+  
+  return averageStars;
 }
 
-toppingsPriceRange();
